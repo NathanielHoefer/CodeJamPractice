@@ -1,0 +1,18 @@
+
+> Items to a list
+	- N = number of case
+	- Get first test case
+		- C = credits to store
+		- I = number of items
+	- Place into array
+		- Create an array that is the size I
+		- For each entry, enter value
+
+> Solve problem
+	- For each test case, start by creating to integers x and y for the cost of 
+		the items
+	- Begin by adding the first item in the array to the later items to see
+		if any of them add to C.
+	- If not, continue with the second and the rest
+
+> Output solution
