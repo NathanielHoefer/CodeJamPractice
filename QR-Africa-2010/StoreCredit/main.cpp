@@ -14,20 +14,24 @@ int main() {
 
 	int numOfCases, credit, items;
 	int x, y;
-	x = y = 0;
 
 	cin >> numOfCases; // Read in the number of test cases
 
-	for ( int i = 0; i < numOfCases; i++ ) {
+	cout << numOfCases << endl;
+
+	for ( int i = 1; i <= numOfCases; i++ ) {
 
 		cin >> credit;
 		cin >> items;
+
+		cout << credit << " " << items << endl;
 
 		int list[items];
 
 		// Reads the item prices into list array
 		for ( int j = 0; j < items; j++ ) {
 			cin >> list[j];
+			cout << list[j] << " ";
 		}
 
 
@@ -35,17 +39,25 @@ int main() {
 
 		// Cycles through each combination until the sum of two equals the
 		// credit amount
-		while ( !valFound) {
-			while ( !valFound ) {
-				y++;
-				if ( list[x - 1] + list[y - 1] == credit )
+		for ( x = 0; x < items; x++ ) {
+			for ( y = x + 1; y < items; y++ ) {
+
+				cout << "Cmp " << list[x] << " " << list[y] << endl;
+				cout << (list[x] + list[y]) << endl;
+
+				if ( (list[x] + list[y]) == credit ) {
 					valFound = true;
+					break;
+				}
 			}
-			x++;
+
+			if ( valFound )
+				cout << "val found" << endl;
+				valFound = false;
+				break;
 		}
 
-
-		cout << "Case #" << i << ": " << x << " " << y << endl;
+		cout << "Case #" << i << ": " << x + 1 << " " << y + 1 << endl << endl;
 	}
 
 	return 0;
