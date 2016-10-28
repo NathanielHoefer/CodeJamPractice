@@ -1,9 +1,16 @@
-/*
- * main.cpp
- *
- *  Created on: Oct 24, 2016
- *      Author: Nathaniel
+/*****************************************************************************/
+// <Title>
+/******************************************************************************
+    Author: Nathaniel Hoefer
+    Email: Nathaniel.D.Hoefer@gmail.com
+
+
+Description of the Problem:
+
+
  */
+
+
 #include <cstring>
 #include <string.h>
 #include <map>
@@ -25,6 +32,7 @@
 
 using namespace std;
 
+// Common functions
 #define pb push_back
 #define all(v) v.begin(),v.end()
 #define rall(v) v.rbegin(),v.rend()
@@ -44,6 +52,7 @@ using namespace std;
 #define rotate(p,about,theta) ((p-about)*exp(point(0,theta))+about)
 #define pointEqu(a,b) (comp(a.X,b.X)==0 && comp(a.Y,b.Y)==0)
 
+// Common type definitions
 typedef stringstream ss;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
@@ -58,63 +67,33 @@ typedef pair<point, point> segment;
 typedef pair<double, point> circle;
 typedef vector<point> polygon;
 
+// Constants
 const int oo = (int) 1e9;
 const double PI = 2 * acos(0);
 const double eps = 1e-9;
 
-//#define SMALL
+// Choose small or large dataset
+#define SMALL
 #define LARGE
+
 int main() {
-//	freopen("a.txt", "rt", stdin);
+
+	// Test input
+	freopen("input.txt", "rt", stdin);
+
+	// Small dataset input
 #ifdef SMALL
 	freopen("A-small-practice.in","rt",stdin);
 	freopen("A-small.out","wt",stdout);
 #endif
+
+	// Large dataset input
 #ifdef LARGE
 	freopen("A-large-practice.in","rt",stdin);
 	freopen("A-large.out","wt",stdout);
 #endif
 
-	int numOfCases, credit, items;
-	int x, y;
 
-	cin >> numOfCases; // Read in the number of test cases
-
-	for ( int i = 1; i <= numOfCases; i++ ) {
-
-		cin >> credit;
-		cin >> items;
-
-		int list[items];
-
-		// Reads the item prices into list array
-		for ( int j = 0; j < items; j++ ) {
-			cin >> list[j];
-		}
-
-
-		bool valFound = false;
-		int sum;
-
-		// Cycles through each combination until the sum of two equals the
-		// credit amount
-		for ( x = 0; x < items; x++ ) {
-			for ( y = x + 1; y < items; y++ ) {
-				sum = list[x] + list[y];
-				if ( sum == credit ) {
-					valFound = true;
-					break;
-				}
-			}
-
-			if ( valFound ) {
-				valFound = false;
-				break;
-			}
-		}
-
-		cout << "Case #" << i << ": " << x + 1 << " " << y + 1 << endl;
-	}
 
 	return 0;
 }
